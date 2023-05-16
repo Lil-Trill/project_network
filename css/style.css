@@ -34,6 +34,11 @@ body {
 }
 
 .msg-signIn {
+    display: none;
     border: 2px yellow solid;
     font-weight: bold;
+}
+
+.show-message {
+    display: block;
 }

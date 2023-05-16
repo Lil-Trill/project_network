@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,7 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/libraries/jsquery.js"></script>
     <script defer src="./js/main.js"></script>
+    <script defer src="./js/fetchSignIn.js"></script>
+
     <title>Project</title>
 </head>
 <body>
@@ -46,21 +53,22 @@
    </footer>
 
    <div class="model-window-signIn">
-    <form class="form-authorisation" action="./api/signIn.php" method="POST">
+    <form class="form-authorisation" method="POST">
         <label for="">Фамилия</label>
          <input name="lname-signIn" required type="text" placeholder="Введите свою фамилию">
         <label for="">Имя</label>
          <input type="text" name="fname-signIn" required placeholder="Введите своё имя">
          <label for="">Отчество</label>
-         <input type="text" name="surname" placeholder="Введите своё отчество">
+         <input type="text" name="surname-signIn" placeholder="Введите своё отчество">
          <label for="">Логин</label>
          <input type="text" name="login-signIn" required placeholder="Введите свой логи">
          <label for="">Пароль</label>
          <input type="password" name="password-signIn" required  placeholder="Введите свой пароль">
          <input class="submit-signIn" type="submit" value="Войти">
-         <p class="msg-signIn">Некто текст</p>
-    </form>
-    
+         <p>если у вас нет аккаунта - <a href="/">зарегестрируйтесь</a></p>
+         <p class='msg-signIn'></p
+         
+    </form
    </div>
   
 </body>
