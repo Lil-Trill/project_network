@@ -1,0 +1,39 @@
+body {
+    background-color:antiquewhite;
+}
+
+.book-image {
+    width: 300px;
+    height: 250px;
+}
+
+
+
+.model-window-signIn {
+    display: none;
+    border: black sloid 1px;
+}
+
+.form-authorisation {
+    display: flex;
+    width: 500px;
+    height: 100px;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.model-window-signIn-open {
+    display: flex;
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    right: 40%;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(4px);
+    flex-direction: column;
+}
+
+.msg-signIn {
+    border: 2px yellow solid;
+    font-weight: bold;
+}
