@@ -1,5 +1,6 @@
 <?php
 session_start();
+require './config.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ session_start();
     <script defer src="js/libraries/jsquery.js"></script>
     <script defer src="./js/main.js"></script>
     <script defer src="./js/fetchSignIn.js"></script>
-
+    <script defer src="./js/fetchSortAuthors.js"></script>
     <title>Project</title>
 </head>
 <body>
@@ -32,6 +33,21 @@ session_start();
     
         ?>
 
+    <div class="list-authors">
+        <?php
+        $connectBooks = inc();
+        $dataBooks = $connectBooks->query("SELECT * FROM `authors` WHERE 1") ;
+        ?>
+        <form class="form-choose_authors">
+            <?php
+                 while($row = $dataBooks->fetch_assoc()){
+                    echo "
+                    <p/><input class='fullname-auhtor' type='radio' name='authors' value='$row[id_authors]'>$row[fname] $row[lname] $row[surname]</p>";
+                }
+            ?>
+            <input class="btn-sort-authors" type="submit" value="Соритровать">
+        </form>
+    </div>
         <div class="book-container">
             <?php
             $books = new Books();
@@ -41,7 +57,8 @@ session_start();
                  echo "<div class='item-book'>
                  <img class='book-image' src='$row[image_path]' alt=''>
                  <h2>$row[name]</h2>
-                 <p>authors</p>
+                 <p/>Автор: </p>
+                 <p/>$row[fname] $row[lname]</p>
                 </div>";
             }
             
@@ -82,3 +99,11 @@ session_start();
 Если пользователь авторизовался у на главной странице у карточек книг появляется кнопка Добавить в избранное. 
 Должна быть страница с профилем пользователя. На этой странице появляется список избранных книг.
  -->
+
+ <!-- 
+    SELECT * 
+FROM `books`
+JOIN book_author ON books.id_book = book_author.id_book
+JOIN authors ON authors.id_authors = book_author.id_author
+WHERE authors.fname = 'Ремарк' 
+-->

@@ -2,7 +2,7 @@
  define("HOST","localhost");
  define("USER","root");
  define("PASS","root");
- define("DB","project_db");
+ define("DB","project");
 
 function inc(){
     $connect;
