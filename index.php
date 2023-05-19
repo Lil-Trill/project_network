@@ -21,6 +21,21 @@ require './config.php';
     <header>
         <button class = "btn-sign-in">Войти</button>
         <button>Зарегестрироваться</button>
+        <?php
+            unset($_SESSION['user']);
+            if(isset($_SESSION['user'])){
+                $fname = $_SESSION['user']['fname'];
+                $lname = $_SESSION['user']['lname'];
+                echo "
+                <p class='fname-header'>
+                    $fname
+                </p>
+                <p class='lname-header'>
+                    $lname
+                </p>
+                ";
+            }
+        ?>
     </header>
     <main>
     <?php

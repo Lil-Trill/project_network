@@ -20,7 +20,10 @@ if(mysqli_num_rows($content) > 0){
         "name" => $book['name'],
         "image_path" => $book['image_path'],
         "copacity_pages" => $book['copacity_pages'],
-        "the_year_of_publishing	" => $book['the_year_of_publishing'],
+        "the_year_of_publishing" => $book['the_year_of_publishing'],
+        "fname" => $book['fname'],
+        "lname" => $book['lname'],
+        "surname" => $book['surname']
     ];
 
     echo json_encode($response);
