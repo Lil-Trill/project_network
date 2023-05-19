@@ -14,6 +14,7 @@ require './config.php';
     <script defer src="./js/main.js"></script>
     <script defer src="./js/fetchSignIn.js"></script>
     <script defer src="./js/fetchSortAuthors.js"></script>
+    <script defer src="./js/fetchDetail.js"></script>
     <title>Project</title>
 </head>
 <body>
@@ -54,16 +55,24 @@ require './config.php';
             $data = $books->getAllData();
             while($row = $data->fetch_assoc()){
                 if($row["image_path"] == null)$row["image_path"] = "./images/nf.png";
-                 echo "<div class='item-book'>
+                 echo "<div class='item-book' data-id='$row[id_book]'>
                  <img class='book-image' src='$row[image_path]' alt=''>
-                 <h2>$row[name]</h2>
-                 <p/>Автор: </p>
-                 <p/>$row[fname] $row[lname]</p>
+                 <h2 class='book-title'>$row[name]</h2>
+                 <div class='author-name'>
+                    <p/>Автор:</p>
+                    <p/ class='lname'>$row[lname]</p>
+                    <p/ class='fname'>$row[fname]</p>
+                    <p/ class='surname'>$row[surname]</p>
+                </div>
+                 
                 </div>";
             }
-            
             ?>
+            
         </div>
+        <div class="model-window-detail-book">
+            
+   </div>
     </main>
    <footer>
         подвал сайта 
@@ -71,12 +80,6 @@ require './config.php';
 
    <div class="model-window-signIn">
     <form class="form-authorisation" method="POST">
-        <label for="">Фамилия</label>
-         <input name="lname-signIn" required type="text" placeholder="Введите свою фамилию">
-        <label for="">Имя</label>
-         <input type="text" name="fname-signIn" required placeholder="Введите своё имя">
-         <label for="">Отчество</label>
-         <input type="text" name="surname-signIn" placeholder="Введите своё отчество">
          <label for="">Логин</label>
          <input type="text" name="login-signIn" required placeholder="Введите свой логи">
          <label for="">Пароль</label>
@@ -87,7 +90,6 @@ require './config.php';
          
     </form
    </div>
-  
 </body>
 </html>
 

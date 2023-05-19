@@ -42,3 +42,26 @@ body {
 .show-message {
     display: block;
 }
+
+.error {
+    border-bottom: 4px solid red;
+}
+
+.model-window-detail-book {
+    display: none;
+    width: 800px;
+    height: 800px;
+    border: black solid 1px;
+}
+
+.open-detail-books {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+}

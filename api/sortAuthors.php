@@ -13,10 +13,10 @@ WHERE authors.id_authors = $idAuthor";
 $content = mysqli_query($data,$sql);
 
 if(mysqli_num_rows($content) > 0){
-    $table = mysqli_fetch_assoc($content);
-    echo $table['fname'];
+    $content = mysqli_fetch_all($content);
+
+        echo json_encode($content);
 }
-else {
-    echo "чота нито";
-}
+
+//echo - выводит только строку но не объект
 ?>
