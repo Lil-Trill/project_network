@@ -54,14 +54,41 @@ body {
     border: black solid 1px;
 }
 
-.open-detail-books {
+.form-registration {
     display: flex;
+    width: 500px;
+    height: 100px;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.model-window-login{
+    display: none;
+}
+
+.model-window-login-open {
+    display: flex;
+    position: fixed;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
     z-index: 2;
-    top:0px;
-    left:0px;
-    width:100vw;
-    height:100vh;
+    top: 50%;
+    right: 40%;
+}
+
+.cross-style {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    z-index: 2;
+    left: 100%;
+    border: none;
+}
+
+.cross-style:hover{
+    background-color: brown;
+}
+
+.unvisible {
+    display: none;
 }

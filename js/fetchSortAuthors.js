@@ -1,5 +1,4 @@
 const bookContainer = document.querySelector(".book-container");
-console.log("hello");
 $('.btn-sort-authors').click(function(event){
     event.preventDefault();
     

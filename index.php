@@ -15,14 +15,19 @@ require './config.php';
     <script defer src="./js/fetchSignIn.js"></script>
     <script defer src="./js/fetchSortAuthors.js"></script>
     <script defer src="./js/fetchDetail.js"></script>
+    <script defer src="./js/fetchLogIn.js"></script>
+    <script defer src="./js/exit.js"></script>
     <title>Project</title>
 </head>
 <body>
     <header>
+    <div class="container-header">
+        <div class="container-login-signIn-btns">
         <button class = "btn-sign-in">Войти</button>
-        <button>Зарегестрироваться</button>
-        <?php
-            unset($_SESSION['user']);
+        <button class="btn-log-in">Зарегестрироваться</button>
+        </div>
+    </div>
+    <?php
             if(isset($_SESSION['user'])){
                 $fname = $_SESSION['user']['fname'];
                 $lname = $_SESSION['user']['lname'];
@@ -33,6 +38,7 @@ require './config.php';
                 <p class='lname-header'>
                     $lname
                 </p>
+                <button class='btn_exit'>Выйти</button>
                 ";
             }
         ?>
@@ -91,20 +97,40 @@ require './config.php';
     </main>
    <footer>
         подвал сайта 
-   </footer>
-
-   <div class="model-window-signIn">
-    <form class="form-authorisation" method="POST">
+    <div class="model-window-signIn">
+        <button class='cross-signIn cross-style'>X</button>
+        <form class="form-authorisation" method="POST">
          <label for="">Логин</label>
          <input type="text" name="login-signIn" required placeholder="Введите свой логи">
          <label for="">Пароль</label>
          <input type="password" name="password-signIn" required  placeholder="Введите свой пароль">
          <input class="submit-signIn" type="submit" value="Войти">
          <p>если у вас нет аккаунта - <a href="/">зарегестрируйтесь</a></p>
-         <p class='msg-signIn'></p
-         
+         <p class='msg-signIn'></p>
     </form
    </div>
+   </footer>
+   <div class="model-window-login">
+    <button class="cross-login cross-style">X</button>
+   <form class="form-registration" method="POST">
+        <label for="">Фамилия</label>
+        <input type="text" name="lname-login" required placeholder="Введите свою фамилию">
+        <label for="">Имя</label>
+        <input type="text" name="fname-login" required placeholder="Введите своё имя">
+        <label for="">Отчество</label>
+        <input type="text" name="surname-login" placeholder="Введите своё отвество">
+        <label for="">Логин</label>
+        <input type="text" name="login-login" required placeholder="Введите свой логин">
+        <label for="">Пароль</label>
+        <input type="password" name="password-login" required  placeholder="Введите свой пароль">
+        <input class="submit-login" type="submit" value="зарегестрироваться">
+        <p>если у вас уже есть аккаунт - <a href="/">войти</a></p>
+        <p class='msg-login'></p
+    </form
+   </div>
+
+
+  
 </body>
 </html>
 
@@ -124,3 +150,6 @@ JOIN book_author ON books.id_book = book_author.id_book
 JOIN authors ON authors.id_authors = book_author.id_author
 WHERE authors.fname = 'Ремарк' 
 -->
+
+<!--INSERT INTO `students`(`fname`, `lname`, `gender`, `age`) VALUES ('$fname','$lname ','$gender',$age)  -->
+<!-- SELECT * FROM `users` WHERE users.login = "roma@" -->
